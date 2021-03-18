@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "ca0c58aa-eb66-4ec8-a177-69a89bb9d5a2",
+		"name": "user",
+		"description": "user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user with list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than one 1000ms\", function () {\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"});\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Response is json\", function () {\r",
+							"  \r",
+							"    pm.response.to.be.json; \r",
+							"});\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							" pm.test(\"Response must be with Body\", function () {\r",
+							"   \r",
+							"       pm.response.to.be.withBody;\r",
+							"  });\r",
+							"\r",
+							"//   pm.test(\"pending status\", function () {\r",
+							"//     var jsonData = pm.response.json();\r",
+							"//     pm.expect(jsonData.status).to.eql('available');\r",
+							"// });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \n    {\n        \"id\": 1,\n        \"username\": \"krupal\",\n        \"firstName\": \"krupal\",\n        \"lastName\": \"patel\",\n        \"email\": \"krupal@kp.com\",\n        \"password\": \"krupal\",\n        \"phone\": \"1231231232\",\n        \"userStatus\": 0\n    },\n    {\n        \"id\": 2,\n        \"username\": \"maya\",\n        \"firstName\": \"maya\",\n        \"lastName\": \"patel\",\n        \"email\": \"maya@kp.com\",\n        \"password\": \"krupal\",\n        \"phone\": \"1231231232\",\n        \"userStatus\": 2\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/createWithList",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"createWithList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than one 1000ms\", function () {\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"});\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Response is json\", function () {\r",
+							"  \r",
+							"    pm.response.to.be.json; \r",
+							"});\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							" pm.test(\"Response must be with Body\", function () {\r",
+							"   \r",
+							"       pm.response.to.be.withBody;\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"verify username\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.username).to.eql('krupal');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"verify email\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.email).to.eql('krupal@kp.com');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"verify number\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.phone).to.eql('1231231232');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/{{username}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than one 1000ms\", function () {\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"});\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Response is json\", function () {\r",
+							"  \r",
+							"    pm.response.to.be.json; \r",
+							"});\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							" pm.test(\"Response must be with Body\", function () {\r",
+							"   \r",
+							"       pm.response.to.be.withBody;\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"verify login responce message\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    // pm.expect(jsonData.message).to.eql('logged in user session:1616090995724');\r",
+							"    pm.expect(jsonData.message).to.include('logged in user session');\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/login?username={{username}}&password={{password}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout user ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than one 1000ms\", function () {\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"});\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Response is json\", function () {\r",
+							"  \r",
+							"    pm.response.to.be.json; \r",
+							"});\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							" pm.test(\"Response must be with Body\", function () {\r",
+							"   \r",
+							"       pm.response.to.be.withBody;\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"verify logout response message\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.include('ok');\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/logout",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than one 1000ms\", function () {\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"});\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Response is json\", function () {\r",
+							"  \r",
+							"    pm.response.to.be.json; \r",
+							"});\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							" pm.test(\"Response must be with Body\", function () {\r",
+							"   \r",
+							"       pm.response.to.be.withBody;\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"verify delete response message\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.include('krupal');\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/{{username}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"{{username}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

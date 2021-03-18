@@ -1,0 +1,33 @@
+Login into pocket/Evernote application.
+
+Login Scenarios:
+
+Functionality:
+
+1. Email and username field should accept valid email id and username
+2. On entering the valid email id and password and click on Continue it should display Password field.
+3. Password should be displayed in masked format rather than showing actual text format
+4. Validation message should be shown when invalid username and/or password is entered or the fields are left blank.
+5. Validation message should be shown when invalid username and valid password is entered.
+6. Validation message should be shown when valid username and valid password is entered.
+7. On providing the proper credentials user should be redirected to evernote page.
+8. On click of "Remember me for 30 days" it should not ask username and password on next redirect of evernote page.
+
+
+Security:
+1. When logged in user copy URL and paste in new browser window, it should redirect to Evernote Login page
+2. Users should not be allowed to copy and paste Password from text box
+3. Notification email for multiple device login - if user login from unusual device/machine
+4. After 3 or 5 unsuccessful attempts of login, user login credentials should get locked for specific period e.g. 24 hours
+5. Two-way authentication through OTP should be working with the newly code generated at every 30 seconds.
+
+Session:
+1. After logout if user clicks on back button user should not be able to login within same session, it should redirect to login page
+2. If user logged in on multiple devices and revoke the other devices from settingsthen it should Logout from all those devices
+3. Maximum Session out time should be set for Secured website ( don't know what is there in evernote)
+
+Browser:
+1. If Browser cookies are cleared and user tries to login to evernote, the system should ask for credentials again.
+2. ‘Remember Form Data’ setting of the browser should not remember the password
+Validate the login functionality when browser cookies are turned OFF
+

@@ -1,0 +1,12 @@
+{
+  "name": "Krupal_API_Testing",
+  "version": "0.0.1",
+  "scripts": {
+    "test:petstoreapi": "node_modules/newman/bin/newman.js run petstore.postman_collection.json run -r html",
+    "test:userapi": "node_modules/newman/bin/newman.js run user.postman_collection.json run -r html"
+  },
+  "dependencies": {
+    "newman": "5.2.2",
+    "newman-reporter-html": "*"
+  }
+}
